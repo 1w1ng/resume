@@ -1,0 +1,25 @@
+
+
+.table {
+  width: 800px;
+  margin: 60px auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th,td{
+    padding: 10px;
+    text-align: center;
+}
+th{
+    background: #555;
+    border:1px solid #777;
+    color:#fff;
+}
+td{
+    border:1px solid #777;
+}
+tbody tr:nth-child(odd) {  
+  
+     background: #ccc;  
+  
+}  
