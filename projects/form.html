@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form表单</title>
+</head>
+<body>
+    <form action="11" method="get">
+        <div class="username">
+            <label for="username">姓名：</label>
+            <input type="test" placeholder="用户名" name="username">
+        </div>
+        <div class="password">
+            <label for="password">密码：</label>
+            <input type="password" name="password">
+        </div>
+        <div class="sex">
+            <label for="sex">性别：</label>
+            <input type="radio" name="sex" value="男">男
+            <input type="radio" name="sex" value="女">女
+        </div>
+        <div class="orientation">
+           <label for="orientation">取向：</label>
+           <input type="radio" name="orientation" value="男">男
+           <input type="radio" name="orientation" value="女">女
+        </div>
+        <div class="hobby">
+            <label for="hobby">爱好：</label>
+            <input type="checkbox" name="hobby" value="game">游戏
+            <input type="checkbox" name="hobby" value="music">音乐
+            <input type="checkbox" name="hobby" value="movie">游戏
+        </div>
+        <div class="comment">
+            <label for="comment">评论：</label>
+            <textarea name="article">
+                  hello
+            </textarea>
+        </div>
+        <div class="checkbox">
+            <label for="checkbox">我的car:</label>
+            <select name="city" id="car">
+                <option value="保时捷" selected>保时捷</option>
+                <option value="宾利">宾利</option>
+                <option value="法拉利">法拉利</option>
+            </select>
+        </div>
+        <div class="submit">
+           <input type="submit" value="提交">
+        </div>
+    </form>
+</body>
+</html>
