@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网易云音乐轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .carousel {
+            width: 1200px;
+            height: 366px;
+            margin: 80px auto;
+        }
+        li {
+            position: absolute;
+            list-style: none;
+            width: 730px;
+            height: 336px;
+            transition: all 0.5s;
+        }
+        .imglist {
+            width: 1200px;
+            height: 336px;
+        }
+        .imglist ul {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .line {
+            width: 1200px;
+            height: 30px;
+            text-align: center;
+        }
+        .list1 {
+            transform: translate(0px,0) scale(0.81);
+            transform-origin: 0 100%;
+            z-index: 2;
+        }
+        .list2 {
+            transform: translate(235px,0);
+            z-index: 3;
+        }
+        .list3 {
+            transform: translate(730px,0) scale(0.81);
+            transform-origin: 100% 100%;
+            z-index: 2;
+        }
+        .list4 {
+            transform: translate(965px,0) scale(0.81);
+            transform-origin: 100% 100%;
+        }
+        .list5 {
+            transform: translate(1200px,0) scale(0.81);
+        }
+        .list6 {
+            transform: translate(1435px,0) scale(0.81);
+        }
+
+        .line a {
+            display: inline-block;
+            width: 35px;
+            height: 3px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="imglist">
+            <ul>
+                <li class="list1"><a href="javascript:;"><img src="img/01.jpg" alt=""></a></li>
+                <li class="list2"><a href="javascript:;"><img src="img/02.jpg" alt=""></a></li>
+                <li class="list3"><a href="javascript:;"><img src="img/03.jpg" alt=""></a></li>
+                <li class="list4"><a href="javascript:;"><img src="img/04.jpg" alt=""></a></li>
+                <li class="list5"><a href="javascript:;"><img src="img/05.jpg" alt=""></a></li>
+                <li class="list6"><a href="javascript:;"><img src="img/06.jpg" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="line">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+    <script>
+        //获取线型按钮
+        var lineB = document.getElementsByClassName("line")[0].getElementsByTagName("a"),
+            index=0,
+            imgArray = ['list1','list2','list3','list4','list5','list6'],
+            lilist = document.getElementsByClassName('imglist')[0].getElementsByTagName('li');
+        //定义线型按钮的显示颜色
+        function lineColor(){
+            for(var i in lineB){
+                if(i-0+1)lineB[i].style.background = '#ccc';
+            }
+            lineB[index].style.background='#45c17c';
+        }
+        lineColor();
+
+        //定义向下翻页按钮
+        function nextPic(){
+            imgArray.unshift(imgArray[5]);//将最后一个元素赋值添加到第一个
+            imgArray.pop();//将最后一个元素删除
+            for(var i in lilist){
+                if(i-0+1)lilist[i].setAttribute('class',imgArray[i]);
+            }
+            index++;//下一个按钮
+            if(index>5){
+                index=0;
+            }
+            lineColor();
+        }
+
+        //定义向上翻页
+        function prePic(){
+            imgArray.push(imgArray[0]);
+            imgArray.shift();
+            for(var i in lilist){
+                if(i-0+1)lilist[i].setAttribute('class',imgArray[i]);
+            }
+            index--;
+            if(index<0){
+                index=5;
+            }
+            lineColor();
+        }
+
+
+
+        //绑定事件
+        document.addEventListener('click',function(){
+            //console.log(event.target.parentNode.parentNode);
+            var el = event.target.parentNode.parentNode;
+            if(el.getAttribute('class')=='list3'){
+                nextPic();
+            }
+            else if(el.getAttribute('class')=='list')prePic();
+        })
+
+        timer=setInterval(nextPic,2000); //每两秒钟往下翻页
+
+        document.getElementsByClassName('carousel')[0].onmouseover=function(){
+            clearInterval(timer);
+        }
+        document.getElementsByClassName('carousel')[0].onmouseout=function(){
+            timer=setInterval(nextPic,2000);
+        }
+
+    </script>
+</body>
+</html>
