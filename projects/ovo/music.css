@@ -118,7 +118,7 @@ section > h2 {
     font-size: 40px;
 }
 section > p {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 section ul img {
     border-radius:50%;
@@ -136,7 +136,7 @@ section > ul p {
 }
 
 .cover{
-    background-color: #eee;
+    
     padding: 60px 0;
 }
 section .family figure {
@@ -182,10 +182,18 @@ section .family p {
 /*section3*/
 
 section .timeline {
-    padding-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    
 }
 section .timeline .major {
-    padding-bottom: 70px;
+    text-align: center;
+    padding: 0 0 125px 0;
+    position: relative;
+}
+.timeline .last {
+    padding-bottom: 0;
 }
 section .timeline .detail h3 {
     padding: 10px;
@@ -217,6 +225,42 @@ section .timeline .left img {
 }
 section .timeline .right img {
     margin-left: 33.33%;
+}
+
+
+section .timeline .special-element .circle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 156px;
+    height: 156px;
+    border-radius: 50%;
+    border: 7px solid rgb(241, 241, 241);
+    background-color: #fed136;
+}
+.special-element {
+    height: 170px;
+    position: relative;
+}
+.special-element .circle h4 {
+    display: block;
+    color: #fff;
+    margin: 40px 0 10px 0;
+    line-height: 26px;
+}
+
+
+section .timeline .major:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left:50%;
+    top: 0;
+    border-left: 2px solid #eee;
+    margin-left: 1px;
+    height: 100%;
+    z-index:-1;
 }
 
 /* section4 */
